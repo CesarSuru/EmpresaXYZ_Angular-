@@ -1,0 +1,86 @@
+<div>
+
+    <div class="d-flex justify-content-between">
+      <h4>Crear Sucursal</h4>
+      <a href="#" routerLink="/Components/lista-sucursal" class="btn btn-outline-dark">Atras</a>
+    </div>
+  
+    <hr/>
+  
+      <form [formGroup]="form" (ngSubmit)="submit()">
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="title">Nombre Sucursal:</label>
+                <input
+                  formControlName="nom_sucursal"
+                  id="name"
+                  type="text"
+                  class="form-control">
+              </div>
+          </div>
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="admin">Nombre del Administrador:</label>
+                <input
+                  formControlName="nom_admin"
+                  id="admin"
+                  type="text"
+                  class="form-control">
+              </div>
+          </div>
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="tel">Teléfono:</label>
+                <input
+                  formControlName="tel"
+                  id="tel"
+                  type="text"
+                  class="form-control">
+                  <div *ngIf="tel?.errors?.['pattern']" class="alert alert-danger">
+                    *El campo de Pedidos solo acepta numeros
+                  </div>
+              </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="direccion">Dirección:</label>
+              <input
+                formControlName="direccion"
+                id="direccion"
+                type="text"
+                class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="fax">Fax:</label>
+              <input
+                formControlName="fax"
+                id="fax"
+                type="text"
+                class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="pedidos_mes">Pedidos al Mes:</label>
+              <input
+                formControlName="pedidos_mes"
+                id="pedidos_mes"
+                type="text"
+                class="form-control">
+              <div *ngIf="pedidos_mes?.errors?.['pattern']" class="alert alert-danger">
+                *El campo de Pedidos solo acepta numeros
+              </div>
+            </div>
+        </div>
+        <br>
+          <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Enviar</button>
+      </form>
+  </div>

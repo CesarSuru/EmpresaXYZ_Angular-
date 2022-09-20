@@ -1,0 +1,40 @@
+
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4>Lista Sucursales</h4>
+      <a routerLink="/Components/add-sucursal" class="btn btn-success">Crear Nueva Sucursal</a>
+    </div>
+
+    <br>
+    
+    <table class="table" style="text-align: center;">
+      <tr>
+        <th>ID</th>
+        <th>Nombre Sucursal</th>
+        <th>Administrador</th>
+        <th>Telefono</th>
+        <th>Direccion</th>
+        <th>Fax</th>
+        <th>Pedidos del Mes</th>
+        <th>Creacion</th>
+        <th>Modificacion</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let sucursal of sucursales" style="text-align: center;">
+        <td>{{ sucursal.id }}</td>
+        <td>{{ sucursal.nom_sucursal }}</td>
+        <td>{{ sucursal.nom_admin }}</td>
+        <td>{{ sucursal.tel }}</td>
+        <td>{{ sucursal.direccion }}</td>
+        <td>{{ sucursal.fax }}</td>
+        <td>{{ sucursal.pedidos_mes }}</td>
+        <td>{{ sucursal.created_at | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ sucursal.updated_at | date: 'dd/MM/yyyy' }}</td>
+        <td>
+          <a href="#" [routerLink]="['/Components/', 'editar-sucursal', sucursal.id  ]" class="btn btn-outline-primary" style="margin: 10px" >Editar</a>
+          <button type="button" (click)="deleteSucursal(sucursal.id)" class="btn btn-outline-danger btn-xs" style="margin: 10px" >Eliminar</button>
+        </td>
+      </tr>
+    </table>
+ </section>
